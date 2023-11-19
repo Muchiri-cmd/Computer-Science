@@ -1,5 +1,3 @@
-//constructors have same name as class
-//constructoes dont have return type
 #include <iostream>
 #include <list>
 using namespace std;
@@ -14,12 +12,14 @@ private:
 
 protected:  
        string name;
+       int contentQuality;
 
 public:
     YouTubeChannel(string Name,string Email){
         name=Name;
         email=Email;
         SubscribersCount=0;
+        contentQuality=0;
 
     }
     void Getinfo(){
@@ -45,6 +45,12 @@ public:
     void PublishVideo(string title){
         PublishedVideoTitles.push_back(title);
     }
+    void CheckAnalytics(){
+        if (contentQuality<=3)
+            cout << name << " has bad quality content"<< endl;
+        else
+            cout << name << " has good quality content" << endl;
+    }
 };
 class CookingYouTubeChannel:public YouTubeChannel{
 public:
@@ -53,6 +59,7 @@ public:
     }
     void Practice(){
         cout <<name <<" is Practicing cooking,learning new recipes,experimenting with spices..."<<endl;
+        contentQuality++;
     }
 };
 
@@ -63,26 +70,27 @@ public:
     }
     void Practice(){
         cout <<name <<" is taking singing classes,learning new songs,learning how to dance."<<endl;
+        contentQuality++;
     }
 };
 
 int main(){
-    YouTubeChannel Channel101("Davisdevelops","davis@dev.to");
-    Channel101.PublishVideo("Javascript for beginners");
-    Channel101.PublishVideo("GO for dummies");
-    Channel101.PublishVideo("Python for babies");
-    Channel101.Subscribe();
-    Channel101.Subscribe();
-    Channel101.Subscribe();
-    Channel101.Subscribe();
-    Channel101.Unsubscribe();
-    Channel101.Getinfo();
-    
+    CookingYouTubeChannel cookingYtChannel("Amy's Kitchen","Amy@cook.to");
+    SingersYouTubeChannel singersYtChannel("JohnSings","john@song.to");
 
-    CookingYouTubeChannel ytchannel("Amy's Kithen","Amy@cook.to");
-    ytchannel.PublishVideo("Apple pie");
-    ytchannel.PublishVideo("Chocolate cake");
-    ytchannel.Getinfo();
-    ytchannel.Practice();
+    cookingYtChannel.Practice();
+    singersYtChannel.Practice();
+    singersYtChannel.Practice();
+    singersYtChannel.Practice();
+    singersYtChannel.Practice();
+
+    
+    YouTubeChannel * yt1 = &cookingYtChannel;
+    YouTubeChannel * yt2 = &singersYtChannel;
+    
+    yt1->CheckAnalytics();
+    yt2->CheckAnalytics();
+    //singersYtChannel.CheckAnalytics();
+    //cookingYtChannel.CheckAnalytics();
     
 }
