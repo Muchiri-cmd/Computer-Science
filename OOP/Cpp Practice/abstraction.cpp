@@ -36,5 +36,5 @@ int main(){
     Smartphone * s2 = new Android();
     s2->TakeASelfie();
     s2->MakeACall();
-
+    
 }
