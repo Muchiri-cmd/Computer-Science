@@ -20,6 +20,7 @@ public:
         LastName=lastname;
         Age=0;
         Email=firstname+"."+lastname+"@mail.com";
+    }
 };
 
 void GetUserInfo(User u){
@@ -33,4 +34,6 @@ int main()
 {
     User user1("saldina","nurak",27);
     GetUserInfo(user1);
+    return 0;
+
 }
