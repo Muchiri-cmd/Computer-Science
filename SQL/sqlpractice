@@ -1,0 +1,65 @@
+CREATE DATABASE my_db;
+
+CREATE TABLE Toys(
+	ToyID INTEGER,
+	ToyName VARCHAR(255) NOT NULL,
+	Price MONEY NOT NULL,
+	DESCRITPION VARCHAR(255) NULL,
+	PRIMARY KEY(ToyID)
+);
+
+//Add UNIQUE constraint to the ToyName 
+ALTER TABLE Toys
+	ADD CONSTRAINT ToyNameUnique UNIQUE (ToyName);
+	
+//Delete UNIQUE Constraint
+ALTER TABLE Toys
+	DROP CONSTRAINT ToyNameUnique;
+	
+	
+//ALTER PRIMARY AND FOREIGN KWY IN A TABLE
+ALTER TABLE tablename ADD PRIMARY KEY(primaryKey)
+
+//ADD FOREIGN KWY
+ALTER TABLE tablename ADD FOREIGN KEY(fkey) REFERENCES ftable(PK)
+
+//Add NOT NULL to an existing table
+ALTER TABLE tablename 
+	ALTER COLUMN columnName Datatype (FIELDSIZE) NOT NULL
+	
+eg 
+ALTER TABLE Toys
+	ALTER DESCRIPTION VARCHAR(255) NOT NULL;
+	
+INSERT INTO Toys (ToyID,ToyName,Price,Description) VALUES (1,'ToyTrain1',11.00,'RedBatteryPoweredTrain');
+
+//insert without showing the column name if u are inserting in order of columns in table
+INSET INTO Toys VALUES (6,'DOll HOUSE' ,17.00, 'Grand TOWN House');
+
+//copying values from 1 table to another
+INSERT INTO ToysTest(ToyID,ToyName,Price,Description) SELECT ToyID,ToyName,Price,Description FROM Toys;
+
+UPDATE Toys SET DEscription ='Town House' WHERE ToyID=6;
+DELETE FROM Toys WHERE TOYID=6;
+
+SELECT * FROM Toys;
+SELECT ToyName , price FROM Toys;
+
+SELECT * FROM Toys ORDER BY ToyName DESC;
+SELECT * FROM Toys ORDER BY ToyID ASC;
+
+//sorting multiple columns 
+SELECT LastName,FirstName FROM EMPLOYEES
+ORDER BY LastName,FirstName;
+
+SELECT SerialNum,Brand,Department FROM Computers WHERE OfficeNumber<130 AND (Brand='Dell' OR Brand='Gateway');
+
+	
+CREATE TABLE Dept(
+	DPT_Code VARCHAR(20) NOT NULL,
+	DPT_Name VARCHAR(255) NOT NULL,
+	DPT_Location VARCHAR (255) NULL,
+	School_Code VARCHAR (20) NULL,
+	PRIMARY KEY(DPT_Code)
+);
+
