@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // sum of Array Elements
+    let arr = [1, 2, 3, 4, 5] //example elements
+
+    function sum(arr){
+      let total = 0
+      for(let i = 0 ; i < arr.length; i++) {
+        total += arr[i]
+      }
+      return total
+    }
+
+    let result = sum(arr)
+    console.log(result);
+    document.write(`The array is : [${arr}]</br>`)
+    document.write(`\nThe total sum of elements numbers in the array is :${result}`)
+    
+    
+    
+  </script>
+</body>
+</html>

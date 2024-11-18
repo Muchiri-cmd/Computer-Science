@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">The Plant Doctor</string>
+    <string name="_10_common_plant_diseases">10 common plant diseases</string>
+    <string name="request_a_diagnosis">Request a diagnosis</string>
+    <string name="more">More</string>
+    <string name="the_plant_doctor">The Plant Doctor</string>
+    <string name="an_icon_of_a_stethoscope">An icon of a stethoscope</string>
+</resources>

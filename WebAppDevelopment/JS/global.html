@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var data=200;//global variable
+    function a(){
+      document.writeln(data);
+    }
+    function b(){
+      document.writeln(data);
+    }
+    a()
+    b();
+   
+    // function m(){
+    //   window.value=100;// value declared as global variable by window object
+    // }
+      function n(){
+      alert(window.value);//accessing global variable from other function
+  }
+  var value = 50
+  n()
+  </script>
+</body>
+</html>

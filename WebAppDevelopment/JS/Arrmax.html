@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let arr = [20,35,42,77,83,102,45]
+
+    let max = 0
+    for ( let  i = 0 ; i < arr.length ; i ++) {
+      if (arr[i] > max)
+        max = arr[i]
+    }
+
+    document.write(`The array is: [${arr}]</br>`)
+    document.write(`The maximum value in the array is :${max}`)
+    console.log(max)
+  </script>
+</body>
+</html>

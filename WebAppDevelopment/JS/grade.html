@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Get grade for marks</h1>
+  <script>
+    const getGrade = (mark) => {
+  if (mark >= 70 && mark <= 100) {
+    return 'A';
+  } else if (mark >= 60 && mark <= 69) {
+    return 'B';
+  } else if (mark >= 50 && mark <= 59) {
+    return 'C';
+  } else if (mark >= 40 && mark <= 49) {
+    return 'D';
+  } else {
+    return 'F';
+  }
+}
+  // Prompt the user to enter the marks
+  let mark = parseFloat(prompt('Enter mark to find out your grade:'));
+
+   // Display the results
+   alert('Your grade is: ' + getGrade(mark));
+  // console.log(grade);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //Get,Set,Check Cookie
+    //cookie that stores name of a visitor
+    //user asked to fill in his/her name 
+    //Next time vistor arrives at the same page , gets a welcome msg
+
+
+    //set cookie val
+    function setCookie(cname,value,days){
+      const date = new Date()
+      date.setTime(date.getTime() + (days*24*60*60*1000))
+      let expires = "expires="+date.toUTCString()
+      document.cookie = cname + "=" + value + ";" + expires + ";path=/"
+      document.write("Welcome Davis")
+    }
+    //get cookie val
+    function getCookie(cname){
+      let name = cname + "="
+      let decodedCookie = decodeURIComponent(document.cookie)
+      let ca = decodedCookie.split(';')
+      for( let i = 0 ; i< ca.length ; i++){
+        let c = ca[i]
+        while( c.charAt(0) === ' '){
+          c = c.substring(1)
+        }
+        if ( c.indexOf(name) === 0 ){
+          return c.substring(name.length,c.length)
+        }
+      }
+      return null
+    }
+    //check cookie value
+    function checkCookie(){
+      let username  = getCookie("username")
+      console.log(username)
+      if ( username != null ){
+        document.write ( "Welcome again "+ username)
+      } else {
+        username = prompt("Please enter your username:","")
+        if (username !== "" && username !=null){
+          setCookie("username", username,7)
+        }
+      }
+    }
+
+    function deleteCookie(){
+      //set cookie to expire
+      setTimeout(() => {
+        document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+        console.log("Cookie deleted")
+        showCookie()
+      },5000)
+      showCookie()
+    }
+
+    function showCookie(){
+      console.log("Cookie is set to:" + (document.cookie ? document.cookie: "null"))
+    }
+
+    checkCookie()
+    deleteCookie()
+  </script>
+  
+</body>
+</html>
